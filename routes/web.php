@@ -34,9 +34,20 @@
 //   return view('welcome')->with('name','hejoyy');
 // });
 
-Route::get('/',function(){
-  return view('welcome',[
-    'name'=>'Foo',
-    'greeting'=>'hig'
-  ]);
+// Route::get('/',function(){
+//   return view('welcome',[
+//     'name'=>'Foo',
+//     'greeting'=>'hig',
+//   ]);
+// });
+//
+// Route::get('/', function(){
+//   $items = ['apple','banana','tomato'];
+//   return view('welcome',[
+//     'items'=>$items
+//   ]);
+// });
+
+Route::get('/', function(){
+  return view('welcome');
 });
