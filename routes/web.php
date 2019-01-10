@@ -11,17 +11,32 @@
 |
 */
 
-Route::get('/{foo?}', function ($foo='bar') {
-    return $foo;
-})->where('foo','[0-9a-zA-Z]{3}');
+// Route::get('/{foo?}', function ($foo='bar') {
+//     return $foo;
+// })->where('foo','[0-9a-zA-Z]{3}');
+//
+// Route::get('/',[
+//   'as'=>'home',
+//   function(){
+//     return 'my name is "home"';
+//   }
+// ]);
+//
+// Route::get('/home',function(){
+//   return redirect(route('home'));
+// });
+//
+// Route::get('/',function(){
+//   return view('errors.503');
+// });
 
-Route::get('/',[
-  'as'=>'home',
-  function(){
-    return 'my name is "home"';
-  }
-]);
+// Route::get('/',function(){
+//   return view('welcome')->with('name','hejoyy');
+// });
 
-Route::get('/home',function(){
-  return redirect(route('home'));
+Route::get('/',function(){
+  return view('welcome',[
+    'name'=>'Foo',
+    'greeting'=>'hig'
+  ]);
 });
