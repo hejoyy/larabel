@@ -21,12 +21,12 @@
 @extends('layouts/master')
 
 @section('content')
-  @include('partials/footer')
+  {{-- @include('partials/footer') --}}
 @endsection
 
 
 @section('script')
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
     alert("저는 자식 뷰의 'script' section");
-  </script>
+  </script> --}}
 @endsection
