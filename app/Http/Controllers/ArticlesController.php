@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ArticlesRequest;
 
 class ArticlesController extends Controller
 {
@@ -33,18 +33,24 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return __METHOD__ . '는 Article 컬렉션을 만들기 위한 폼을 담은 뷰를 반환.';
+        return view('articles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticlesRequest $request)
     {
-        return __METHOD__ . '는 사용자의 입력한 폼 데이터로 새로운 Article 컬렉션을 만듬.';
+        $article = \App\User::find(1)->articles()->create($request->all());
+
+        if (!$article) {
+          return back()->with('flash_message', 'not saved')->withInput();
+        }
+
+        return redirect(route('articles.index'))->with('flash_message', 'saved');
     }
 
     /**
