@@ -50,6 +50,8 @@ class ArticlesController extends Controller
           return back()->with('flash_message', 'not saved')->withInput();
         }
 
+        event(new \App\Events\ArticlesEvent($article));
+
         return redirect(route('articles.index'))->with('flash_message', 'saved');
     }
 
@@ -57,7 +59,7 @@ class ArticlesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Respons
      */
     public function show($id)
     {
